@@ -16,7 +16,7 @@
             --accent-red: #ff4d4d;
             --accent-blue: #00a3ff;
             --text-dim: #a0a0a0;
-            --glass: rgba(255, 255, 255, 0.05);
+            --glass: rgba(255, 255, 255, 0.15);
             --transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
@@ -315,7 +315,62 @@
         .bar.adbs { background: linear-gradient(to top, var(--accent-yellow), #ffe680); }
 
         .bar-label { font-size: 0.8rem; color: var(--text-dim); }
-        .bar-value { position: absolute; top: -25px; font-weight: 800; color: #fff; }
+        .bar-value { position: absolute; top: -30px; font-weight: 800; color: #fff; width: 100%; text-align: center; }
+
+        /* Quiz Styles */
+        .quiz-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .quiz-option {
+            background: var(--bg-card);
+            border: 1px solid var(--glass);
+            padding: 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--accent-blue);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .quiz-option.correct {
+            background: rgba(0, 255, 100, 0.1) !important;
+            border-color: #00ff64 !important;
+            color: #00ff64;
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(255, 77, 77, 0.1) !important;
+            border-color: var(--accent-red) !important;
+            color: var(--accent-red);
+        }
+
+        .quiz-feedback {
+            margin-top: 2rem;
+            font-weight: 600;
+            text-align: center;
+            min-height: 1.5em;
+        }
+
+        /* Ending Styles */
+        .ending-quote {
+            font-size: 2.5rem;
+            text-align: center;
+            font-style: italic;
+            color: var(--accent-yellow);
+            margin-top: 2rem;
+            line-height: 1.4;
+        }
 
         /* Notes Section */
         .notes-panel {
@@ -540,15 +595,53 @@
         <div class="slide" id="slide-5">
             <h2 class="slide-title">References</h2>
             <ul class="bullets" style="column-count: 2; column-gap: 4rem;">
-                <li><strong>Wilkins KB et al.</strong> (2025). Beta burst-driven adaptive deep brain stimulation. <em>Brain Communications</em>.</li>
-                <li><strong>Parkinson’s Foundation.</strong> Freezing of Gait: Management and Symptoms.</li>
-                <li><strong>NINDS.</strong> Parkinson’s Disease: Challenges, Progress, and Promise.</li>
-                <li><strong>Inova Movement Disorders.</strong> Freezing of Gait (FoG) Clinical Guide.</li>
-                <li><strong>ClinicalTrials.gov.</strong> Adaptive DBS for FOG in Parkinson’s Disease.</li>
+                <li><strong>Wilkins KB et al.</strong> (2025). <a href="https://academic.oup.com/braincomms/article/7/4/fcaf266/8193943" target="_blank" style="color: inherit; text-decoration: underline;">Beta burst-driven adaptive deep brain stimulation.</a> <em>Brain Communications</em>.</li>
+                <li><strong>Parkinson’s Foundation.</strong> <a href="https://www.parkinson.org/living-with-parkinsons/management/activities-daily-living/freezing" target="_blank" style="color: inherit; text-decoration: underline;">Freezing of Gait: Management and Symptoms.</a></li>
+                <li><strong>NINDS.</strong> <a href="https://www.ninds.nih.gov/health-information/disorders/parkinsons-disease" target="_blank" style="color: inherit; text-decoration: underline;">Parkinson’s Disease: Challenges, Progress, and Promise.</a></li>
+                <li><strong>Inova Movement Disorders.</strong> <a href="https://ipmdc.org/freezing/" target="_blank" style="color: inherit; text-decoration: underline;">Freezing of Gait (FoG) Clinical Guide.</a></li>
+                <li><strong>ClinicalTrials.gov.</strong> <a href="https://clinicaltrials.ucsf.edu/trial/NCT06819020" target="_blank" style="color: inherit; text-decoration: underline;">Adaptive DBS for FOG in Parkinson’s Disease.</a></li>
             </ul>
             <div style="margin-top: 4rem; text-align: center; opacity: 0.5;">
                 <p>Presentation developed for Physiology Course Assignment</p>
                 <p>Aditya Vivek & Saoud Al Emadi</p>
+            </div>
+        </div>
+
+        <!-- Slide 6: Quiz 1 -->
+        <div class="slide" id="slide-6">
+            <h2 class="slide-title">Quick Quiz: Part 1</h2>
+            <h3 style="margin-bottom: 2rem;">What neurotransmitter is primarily lost in Parkinson's disease?</h3>
+            <div class="quiz-container">
+                <div class="quiz-option" onclick="checkQuiz(this, false, 1)">A) Serotonin</div>
+                <div class="quiz-option" onclick="checkQuiz(this, true, 1)">B) Dopamine</div>
+                <div class="quiz-option" onclick="checkQuiz(this, false, 1)">C) Acetylcholine</div>
+                <div class="quiz-option" onclick="checkQuiz(this, false, 1)">D) GABA</div>
+            </div>
+            <div class="quiz-feedback" id="feedback-1"></div>
+        </div>
+
+        <!-- Slide 7: Quiz 2 -->
+        <div class="slide" id="slide-7">
+            <h2 class="slide-title">Quick Quiz: Part 2</h2>
+            <h3 style="margin-bottom: 2rem;">What does the "Adaptive" in aDBS mean?</h3>
+            <div class="quiz-container">
+                <div class="quiz-option" onclick="checkQuiz(this, false, 2)">A) It adapts to changes in the weather</div>
+                <div class="quiz-option" onclick="checkQuiz(this, true, 2)">B) It adjusts stimulation based on real-time brain signals</div>
+                <div class="quiz-option" onclick="checkQuiz(this, false, 2)">C) It is manually adapted by the patient's phone</div>
+                <div class="quiz-option" onclick="checkQuiz(this, false, 2)">D) It adapts to the patient's diet</div>
+            </div>
+            <div class="quiz-feedback" id="feedback-2"></div>
+        </div>
+
+        <!-- Slide 8: Ending -->
+        <div class="slide" id="slide-8">
+            <h2 class="slide-title" style="text-align: center;">Restoring the Rhythm <br>of Life</h2>
+            <div class="ending-quote">
+                “When the brain can finally speak and the feet can finally listen, movement becomes more than a task—it becomes a freedom.”
+            </div>
+            <div style="margin-top: 4rem; text-align: center;">
+                <h3 style="color: var(--accent-blue);">Thank You!</h3>
+                <p style="color: var(--text-dim); margin-top: 1rem;">Aditya Vivek & Saoud Al Emadi</p>
             </div>
         </div>
     </div>
@@ -569,20 +662,23 @@
             <div class="progress-bar" id="progress"></div>
         </div>
         <div style="font-size: 0.8rem; color: var(--text-dim); min-width: 50px; text-align: right;">
-            Slide <span id="current-num">1</span>/5
+            Slide <span id="current-num">1</span>/8
         </div>
     </footer>
 
     <script>
         let currentSlide = 1;
-        const totalSlides = 5;
+        const totalSlides = 8;
 
         const speakerMap = {
             1: "Aditya",
             2: "Saoud",
             3: "Aditya / Saoud",
             4: "Saoud",
-            5: "Saoud"
+            5: "Saoud",
+            6: "Aditya",
+            7: "Saoud",
+            8: "Aditya / Saoud"
         };
 
         const notesMap = {
@@ -590,12 +686,30 @@
             2: "During a freezing episode, the person wants to move, but the feet suddenly feel stuck, almost like they are glued to the ground. These episodes are often triggered when starting to walk, turning, or passing through a narrow space like a doorway. This is not muscle weakness — it’s a problem in movement control and feedback systems.",
             3: "ADITYA: Unlike regular DBS, which stimulates continuously, aDBS is a closed-loop system. It monitors abnormal beta burst activity and adjusts brain stimulation in real time. \n\nSAOUD: In a 2025 pilot study, seven people were tested. The study found that adaptive DBS significantly reduced percent time freezing compared with OFF stimulation. It's a major step toward smarter personalized treatment.",
             4: "This connects to several course concepts: \n1. Nervous System (neural control disorder)\n2. Synaptic Communication (dopamine signaling)\n3. Control Systems (homeostasis of movement)\n4. Structure vs Function (muscles are fine, neural circuit is impaired).",
-            5: "Briefly mention that these references are the foundation of our presentation, focusing on the latest 2025 research from Brain Communications. End with the final closing sentence: 'Freezing of gait shows how the loss of one neurotransmitter can disrupt an entire movement network, and how technology like aDBS can help restore that control.'"
+            5: "Briefly mention that these references are the foundation of our presentation, focusing on the latest 2025 research from Brain Communications. Click the links if you want to show the sources.",
+            6: "Let's do a quick quiz! Aditya: 'First question, what neurotransmitter is primarily lost in Parkinson's disease?' Wait for audience/partner response.",
+            7: "Saoud: 'Second question, what exactly does the Adaptive part of aDBS mean?' This is the key takeaway of our technology slide.",
+            8: "Closing: 'When the brain can finally speak and the feet can finally listen, movement becomes more than a task—it becomes a freedom.' Thank you for your time!"
         };
 
         function startPresentation() {
             document.getElementById('hook').classList.add('hidden');
             updateUI();
+        }
+
+        function checkQuiz(element, isCorrect, quizNum) {
+            const options = element.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => opt.classList.remove('correct', 'incorrect'));
+            
+            if (isCorrect) {
+                element.classList.add('correct');
+                document.getElementById(`feedback-${quizNum}`).innerText = "Correct! Well done.";
+                document.getElementById(`feedback-${quizNum}`).style.color = "#00ff64";
+            } else {
+                element.classList.add('incorrect');
+                document.getElementById(`feedback-${quizNum}`).innerText = "Not quite. Try again!";
+                document.getElementById(`feedback-${quizNum}`).style.color = "var(--accent-red)";
+            }
         }
 
         function updateUI() {
