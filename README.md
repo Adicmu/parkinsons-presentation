@@ -1,10 +1,16 @@
 # Parkinson's Disease Presentation: Freezing of Gait
 
-A premium, interactive web-based presentation on the topic of "Freezing of Gait in Parkinson's Disease". This presentation features custom animations, a dynamic speaker badge, built-in speaker notes, and interactive charts recreating the latest 2025 research on Adaptive Deep Brain Stimulation (aDBS).
+A premium, interactive web-based presentation developed for **03-129 Human Health and Diseases**. This presentation focuses on the physiology of "Freezing of Gait" (FOG) and highlights the latest 2025 research on Adaptive Deep Brain Stimulation (aDBS).
 
-## 🚀 How to Run Locally
+## 🚀 Live Demo
+You can view the live interactive presentation here:  
+**[https://adicmu.github.io/parkinsons-presentation/](https://adicmu.github.io/parkinsons-presentation/)**
 
-You don't need any special server to run this presentation. It is built with vanilla HTML, CSS, and JS.
+---
+
+## 🛠️ How to Run Locally
+
+This presentation is self-contained and runs in any modern web browser.
 
 1. **Clone the repository:**
    ```bash
@@ -13,19 +19,27 @@ You don't need any special server to run this presentation. It is built with van
    ```
 
 2. **Open the Presentation:**
-   Simply double-click the `index.html` file to open it in your default web browser (Chrome or Safari recommended).
-   
-   Alternatively, open your browser and use `Cmd + O` (Mac) or `Ctrl + O` (Windows) and select the `index.html` file.
+   - Double-click `index.html` to open it in your browser.
+   - For the best experience, use **Chrome** or **Safari** in full-screen mode.
 
-3. **Navigate the Presentation:**
-   - Press **Right Arrow** or **Spacebar** to go to the next slide.
-   - Press **Left Arrow** to go back.
-   - Press **N** or click "Toggle Notes" to display the speaker script.
+3. **Interactivity & Controls:**
+   - **Navigation**: Use the **Right Arrow** / **Spacebar** to advance and **Left Arrow** to go back.
+   - **Speaker Notes**: Press **'N'** or click the **"Toggle Notes"** button in the footer to view the full presentation script.
+   - **Interactive Quiz**: Test your knowledge on Slides 6 & 7.
+   - **Data Chart**: Slide 3 features a dynamic chart showing the efficacy of aDBS treatment.
 
-## 📁 Files Included
+---
 
-- `index.html`: The main presentation file containing all code and styling.
-- `presentation_guide.md`: A full walk-through document containing the speaker script and timing.
-- `assets/` *(If images were downloaded directly, otherwise they point to absolute local paths. Note: If you share this repo, ensure the image paths in index.html are updated to relative local paths if you add them to the repo)*.
+## 🖼️ Visual Assets
+To ensure all visuals load correctly, the following folder structure must be preserved:
+- `index.html`: The core application.
+- `assets/`: Contains the brain diagrams and clinical imagery used in the slides.
 
-Enjoy the presentation!
+## 📚 References
+- **Wilkins KB et al. (2025).** "Beta burst-driven adaptive deep brain stimulation." *Brain Communications*.
+- **Parkinson’s Foundation.** "Freezing of Gait: Management and Symptoms."
+- **NINDS.** "Parkinson’s Disease: Challenges, Progress, and Promise."
+
+---
+**Developed by:** Aditya Vivek & Saoud Al Emadi
+**Course:** 03-129 Human Health and Diseases
